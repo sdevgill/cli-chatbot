@@ -46,13 +46,23 @@ def main():
 
     while True:
         try:
-            user_input = input(bold(blue("You: ")))
+            user_input = input("\n" + bold(blue("You: ")))
             messages.append({"role": "user", "content": user_input})
 
             res = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=messages)
 
             messages.append(res["choices"][0]["message"].to_dict())
             print(bold(red("Assistant: ")), res["choices"][0]["message"]["content"])
+
+            total_tokens = res["usage"]["total_tokens"]
+            print(
+                "\n"
+                + bold("Cost: $")
+                + f"{total_tokens * 0.000002:.6f}"
+                + " --- Tokens used: "
+                + str(total_tokens)
+            )
+            print("\n" + "----------------------------------------")
 
         except KeyboardInterrupt:
             print("Exiting...")
