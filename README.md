@@ -1,13 +1,20 @@
 # CLI Chatbot
 
-This is a command-line interface (CLI) chatbot powered by GPT language model. It is built with Python and uses the OpenAI GPT API to generate responses to user inputs.
+A GPT-powered Command Line Interface (CLI) chatbot that allows users to interact with an AI assistant via the terminal.
 
-## Requirements
+## Features
 
-- Python ^3.11
-- Poetry ^1.4.0
+- Interactive conversation with a GPT-4 or GPT-3.5-turbo powered AI chatbot.
+- Customizable chatbot personality.
+- Colorful command-line interface for enhanced user experience.
 
 ## Installation
+
+### Prerequisites
+
+- Python ^3.11
+
+### Steps
 
 1. Clone the repository and navigate to the project directory.
 
@@ -16,31 +23,49 @@ git clone git@github.com:sdevgill/cli-chatbot.git
 cd cli-chatbot
 ```
 
-2. Create an .env file and add your OpenAI API key as shown in the .env.example file.
+2. Install Poetry, a package manager for Python:
 
 ```
-cp .env.example .env
+curl -sSL https://install.python-poetry.org | python3 -
 ```
 
-3. Install the requirements.
+3. Install the required packages:
 
 ```
 poetry install
 ```
 
-4. Activate the virtual environment.
+4. Create and add your OpenAI API key to the `.env` file:
+
+```
+cp .env.example .env
+```
+
+## Usage
+
+1. Activate the virtual environment:
 
 ```
 poetry shell
 ```
 
-5. Run the application.
+2. Run the chatbot:
 
 ```
-python main.py
+python app.py
 ```
 
-## Usage
+3. Optionally, customize the chatbot's personality using the --personality flag:
 
-Type a message and press Enter to send it to the chatbot.
-The chatbot will respond with a generated message based on the input.
+```
+python app.py --personality "a knowledgeable and insightful teacher"
+python app.py --personality "rude and sarcastic"
+```
+
+4. Type your messages to the chatbot and press Enter. The chatbot will respond with its AI-generated message.
+
+5. To exit the chat, press Ctrl+C.
+
+## License
+
+This project is licensed under the terms of the [MIT License](https://opensource.org/licenses/MIT).
