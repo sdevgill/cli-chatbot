@@ -11,6 +11,7 @@ packages = [{include = "cli_chatbot"}]
 python = "^3.11"
 openai = "^0.27.4"
 python-dotenv = "^1.0.0"
+argparse = "^1.4.0"
 
 
 [build-system]
