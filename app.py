@@ -47,6 +47,11 @@ def main():
     while True:
         try:
             user_input = input("\n" + bold(blue("You: ")))
+
+            if user_input.lower() in ["exit", "quit"]:
+                print("Exiting...")
+                break
+
             messages.append({"role": "user", "content": user_input})
 
             res = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=messages)
@@ -68,7 +73,7 @@ def main():
             print("Exiting...")
             break
 
-    print(res)
+    # print(res)
 
 
 if __name__ == "__main__":
