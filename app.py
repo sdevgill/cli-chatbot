@@ -37,6 +37,12 @@ def main():
         default="friendly and helpful",
     )
 
+    parser.add_argument(
+        "--show-response",
+        action="store_true",
+        help="Display the response object when exiting",
+    )
+
     args = parser.parse_args()
 
     initial_prompt = (
@@ -73,7 +79,8 @@ def main():
             print("Exiting...")
             break
 
-    # print(res)
+    if args.show_response:
+        print(res)
 
 
 if __name__ == "__main__":
